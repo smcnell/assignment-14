@@ -19,7 +19,7 @@ document.querySelector("#double button").addEventListener('click',function(){
 document.querySelector("#color-circle button").addEventListener('click',function(){
   var circleImg= document.querySelector("#circle-bw")
   console.log(circleImg)
-  if (circleImg.style.backgroundColor==="rgb(255, 255, 255)"){
+  if (circleImg.style.backgroundColor!=="black"){
   circleImg.style.backgroundColor= "black"}
   else {circleImg.style.backgroundColor= "rgb(255, 255, 255)"}
 
@@ -74,48 +74,75 @@ document.querySelector("#remove button").addEventListener('click',function(){
 
 
 
-// document.querySelector("#reverse-squares button").addEventListener('click',function(){
-//   var squares= document.querySelectorAll(".answer-box span")
-//   console.log(squares)
-//   var backwards=""
-//   // for (var i=0; i < squares.length; i++){
-//     // console.log(squares[0])
-//    var first= squares[0]
-//    var second=squares[1]
-//    var third= squares[2]
-//    var fourth= squares[3]
-//    var fifth=squares[4]
-//    var sixth=squares[5]
-//    var seventh=squares[6]
-//
-//    backwards= seventh + sixth + fifth + fourth+ third+ second + first;
-//    console.log(backwards)
-//    squares=backwards
-//
-//
-//
-// })
+document.querySelector("#reverse-squares button").addEventListener('click',function(){
+  var squares= document.querySelectorAll(".answer-box span");
+  var daBox = document.querySelector("#reverse-squares .answer-box")
+  var squareEl=document.querySelector(".square");
+  var newArry = []
+  for(i = 0; i < squares.length; i++){
+    // console.log(squares[i])
+    newArry.unshift(squares[i])
+  }
+  console.log(newArry)
+
+
+
+  // newArry.reverse()
+  // console.log()
+  daBox.innerHTML = ""
+  // console.log(daBox)
+  for(b = 0; b < newArry.length; b++){
+    // console.log(newArry[b])
+    // console.log(newArry[b].element)
+    console.log(newArry[b])
+    daBox.innerHTML += "<span class='" + newArry[b].className + "'>" + newArry[b].textContent + "</span>"
+  }
+  console.log(daBox)
+
+
+
+
+  //  boxEl.innerHTML=
+  //  "<span class='square s2'>1</span>"+
+  //  "<span class='square s1'>2</span>"+
+  //  "<span class='square s2'>3</span>" +
+  //  "<span class='square s1'>4</span>" +
+  //  "<span class='square s1'>5</span>"+
+  //  "<span class='square s1'>6</span>"+
+  //  "<span class='square s3'>7</span>"
+
+  //  console.log(boxEl.innerHTML)
+
+})
+
+
 
 
 
 document.querySelector("#pig-latin button").addEventListener('click',function(){
-  var listEl= document.querySelectorAll("#tasks li")
+  var listEl= document.querySelectorAll("#tasks li");
+  var tasksEl= document.querySelector("#tasks")
+
   // console.log("---------------")
-  console.log(listEl)
-  var backwardsWord= ""
+  // console.log(listEl);
+  var backwardsWord= "";
 
   for (var i=0; i <listEl.length; i++){
-  var oneLi= listEl[i].textContent
+    var oneLi= listEl[i].textContent;
 
+    backwardsWord+= "<li>";
+    for (var b= oneLi.length-1; b >=0; b--){
 
-  for (var b= oneLi.length-1; b >=0; b--){
-
-    backwardsWord= backwardsWord + oneLi[b]
-    // console.log(backwardsWord)
+      backwardsWord= backwardsWord + oneLi[b];
+      // console.log(backwardsWord)
+    }
+    backwardsWord+= "</li>";
   }
-} listEl.innerHTML=backwardsWord
-
-
+  // backwardsWord= "<ul>" + backwardsWord + "</ul>"
+  // console.log(backwardsWord);
+  // listEl.innerHTML=backwardsWord
+  tasksEl.innerHTML=backwardsWord;
+  // console.log(listEl.innerHTML)
 
 
 })
@@ -124,7 +151,19 @@ document.querySelector("#pig-latin button").addEventListener('click',function(){
 
 
 
-//
-// document.querySelector("#cycle-image button").addEventListener('click',function(){
-//    //TASK #8
-// })
+
+document.querySelector("#cycle-image button").addEventListener('click',function(){
+  var picEl= document.querySelectorAll("#city-img")
+  console.log(picEl)
+
+    for (var i = 0; i < picEl.length; i++) {
+    var imageElem = picEl[i]
+    var source= (imageElem.getAttribute("src"));
+    if (source.indexOf(1)===20){
+      
+    }
+
+    }
+
+
+})
