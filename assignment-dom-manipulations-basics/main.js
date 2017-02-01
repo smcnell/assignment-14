@@ -154,18 +154,21 @@ document.querySelector("#pig-latin button").addEventListener('click',function(){
 
 document.querySelector("#cycle-image button").addEventListener('click',function(){
   var picEl= document.querySelectorAll("#city-img")
-  console.log(picEl)
+
 
     for (var i = 0; i < picEl.length; i++) {
     var imageElem = picEl[i]
     var random= Math.random()*50
     var floor= Math.floor(random)
+    var floorString = floor.toString();
     // console.log(floor)
     var source= (imageElem.getAttribute("src"));
     // console.log(source)
     if (source.indexOf(1)===20){
-      source="./images/city-photo-"+floor + "4.jpg"
-    }console.log(source)
+      source="./images/city-photo-"+floorString+ ".jpg"
+    }else {
+      source="./images/city-photo-"+floorString+ ".jpg"
+    } 
 
 
     }
